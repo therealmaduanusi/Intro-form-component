@@ -73,6 +73,12 @@ body, html {
 .form-group span {
     text-align: right;
 }
+input + img {
+    position: absolute;
+    top: 14px;
+    right: 10px;
+    visibility: collapse;
+}
 
 .error-message {
     color: red;

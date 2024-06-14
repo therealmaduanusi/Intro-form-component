@@ -1,6 +1,7 @@
-'use strict'
+"use strict";
 // scripts.js
-document.getElementById("submit-button").addEventListener("click", function () {
+document.getElementById("submit-button").addEventListener("click", function (e) {
+  e.preventDefault()
   let isValid = true;
 
   const firstName = document.getElementById("first-name").value.trim();
@@ -10,58 +11,64 @@ document.getElementById("submit-button").addEventListener("click", function () {
 
   // All input Tag
   const inputs = document.querySelectorAll("input");
-    inputs.forEach((input) => {
-        let inputName = input.getAttribute("name");
-        // console.log(inputName);
+  inputs.forEach((input) => {
+    let inputName = input.getAttribute("name");
+    if (inputName === "firstName") {
 
-        if (inputName === "firstName") {
-            if (!firstName) {
-                isValid = false;
-                document.getElementById("first-name-error").style.display = "block";
-                input.style.border = "1px solid #f00";
-            } else {
-                document.getElementById("first-name-error").style.display = "none";
-                input.style.border = "1px solid #ccc";
-            }
-        }
+      if (!firstName) {
+        isValid = false;
+        document.getElementById("first-name-error").style.display = "block";
+        input.style.border = "1px solid #FF7979";
+        input.nextElementSibling.style.visibility = "visible";
+      } else {
+        document.getElementById("first-name-error").style.display = "none";
+        input.style.border = "1px solid #ccc";
+        input.nextElementSibling.style.visibility = "collapse";
+      }
+    }
 
-        if (inputName === "lastName") {
-            if (!lastName) {
-                isValid = false;
-                document.getElementById("last-name-error").style.display = "block";
-                input.style.border = "1px solid #f00";
-            } else {
-                document.getElementById("last-name-error").style.display = "none";
-                input.style.border = "1px solid #ccc";
-            }
-        }
+    if (inputName === "lastName") {
+      if (!lastName) {
+        isValid = false;
+        document.getElementById("last-name-error").style.display = "block";
+        input.style.border = "1px solid #FF7979";
+        input.nextElementSibling.style.visibility = "visible";
+      } else {
+        document.getElementById("last-name-error").style.display = "none";
+        input.style.border = "1px solid #ccc";
+        input.nextElementSibling.style.visibility = "collapse";
+      }
+    }
 
-        if (inputName === "email") {
-            if (!email || !email.includes("@")) {
-                isValid = false;
-                document.getElementById("email-error").style.display = "block";
-                input.style.border = "1px solid #f00";
-            } else {
-                document.getElementById("email-error").style.display = "none";
-                input.style.border = "1px solid #ccc";
-            }
-        }
+    if (inputName === "email") {
+      if (!email || !email.includes("@")) {
+        isValid = false;
+        document.getElementById("email-error").style.display = "block";
+        input.style.border = "1px solid #FF7979";
+        input.nextElementSibling.style.visibility = "visible";
+      } else {
+        document.getElementById("email-error").style.display = "none";
+        input.style.border = "1px solid #ccc";
+        input.nextElementSibling.style.visibility = "collapse";
+      }
+    }
 
-        if (inputName === "password") {
-            if (!password) {
-                isValid = false;
-                document.getElementById("password-error").style.display = "block";
-                input.style.border = "1px solid #f00";
-            } else {
-                document.getElementById("password-error").style.display = "none";
-                input.style.border = "1px solid #ccc";
-            }
-        }
-    });
-  // console.log(inputs);
+    if (inputName === "password") {
+      if (!password) {
+        isValid = false;
+        document.getElementById("password-error").style.display = "block";
+        input.style.border = "1px solid #FF7979";
+        input.nextElementSibling.style.visibility = "visible";
+      } else {
+        document.getElementById("password-error").style.display = "none";
+        input.style.border = "1px solid #ccc";
+        input.nextElementSibling.style.visibility = "collapse";
+      }
+    }
+  });
 
-//   if (isValid) {
-//     alert("Form submitted successfully!");
-//     // Here you can add code to submit the form data
-//   }
+    // if (isValid) {
+    //   alert("Form submitted successfully!");
+    //   // Here you can add code to submit the form data
+    // }
 });
