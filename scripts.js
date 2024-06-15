@@ -65,10 +65,11 @@ document.getElementById("submit-button").addEventListener("click", function (e) 
         input.nextElementSibling.style.visibility = "collapse";
       }
     }
+    input.value = ''
   });
 
-    // if (isValid) {
-    //   alert("Form submitted successfully!");
-    //   // Here you can add code to submit the form data
-    // }
+    if (isValid) {
+      alert("Form submitted successfully!");
+      // Here you can add code to submit the form data
+    }
 });
